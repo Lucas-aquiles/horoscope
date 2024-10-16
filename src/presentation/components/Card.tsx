@@ -6,10 +6,13 @@ import {RootStackParamList} from '../../NavigationTypes'; // Asegúrate de impor
 const Card = ({url, name}: {url: any; name: string}) => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>(); // Especifica el tipo aquí
 
+  const nameLower = name.toLowerCase();
   return (
     <TouchableOpacity
       style={styles.cardContainer}
-      onPress={() => navigation.navigate('Description', {horoscopeName: name})}>
+      onPress={() =>
+        navigation.navigate('Description', {horoscopeName: nameLower})
+      }>
       <Image source={url} style={styles.image} />
       <Text style={styles.text}>{name}</Text>
     </TouchableOpacity>
