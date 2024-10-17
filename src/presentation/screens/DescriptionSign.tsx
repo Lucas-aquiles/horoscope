@@ -84,9 +84,10 @@ const DescriptionSign = () => {
           alignSelf: 'center',
         }}>
         <Button
+          style={{backgroundColor: colors.textSecondary}}
           mode="contained"
           onPress={() => navigation.navigate('Home' as never)}>
-          Regresar a Home
+          Regresar a Inicio
         </Button>
       </View>
     </View>

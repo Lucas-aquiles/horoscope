@@ -26,7 +26,7 @@ const NavigationDrawer = () => {
         drawerActiveTintColor: 'white',
         drawerInactiveTintColor: colors.textSecondary,
         drawerLabelStyle: {
-          fontSize: 21,
+          fontSize: dimensions.width * 0.05,
           marginHorizontal: 'auto',
         },
         drawerItemStyle: {
@@ -36,7 +36,7 @@ const NavigationDrawer = () => {
           width: dimensions.width * 0.5,
         },
       }}>
-      <Drawer.Screen name="Horoscopos" component={NavigationScreen} />
+      <Drawer.Screen name="Inicio" component={NavigationScreen} />
       <Drawer.Screen name="Config" component={SettingScreen} />
     </Drawer.Navigator>
   );

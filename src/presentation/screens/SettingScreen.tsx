@@ -31,15 +31,16 @@ const SettingScreen = () => {
           display: 'flex',
         }}>
         <Button
-          style={{marginVertical: 20}}
+          style={{marginVertical: 20, backgroundColor: colors.textSecondary}}
           mode="contained"
           onPress={handlePress}>
           Políticas de Privacidad
         </Button>
         <Button
+          style={{marginVertical: 20, backgroundColor: colors.textSecondary}}
           mode="contained"
           onPress={() => navigation.navigate('Home' as never)}>
-          Regresar a Home
+          Regresar a Inicio
         </Button>
       </View>
     </View>

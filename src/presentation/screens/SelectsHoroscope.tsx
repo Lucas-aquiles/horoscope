@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 5,
+    backgroundColor: colors.textSecondary,
   },
   buttonText: {
     color: '#fff',

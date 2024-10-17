@@ -58,6 +58,7 @@ const HomeScreen = () => {
           position: 'absolute',
           bottom: height * 0.1,
           alignSelf: 'center',
+          backgroundColor: colors.textSecondary,
         }}
         labelStyle={{fontSize: 20}}
         mode="contained"
