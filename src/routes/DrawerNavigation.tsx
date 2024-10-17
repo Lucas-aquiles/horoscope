@@ -4,10 +4,10 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import HomeScreen from '../presentation/screens/HomeScreen';
 import SettingScreen from '../presentation/screens/SettingScreen';
 import NavigationScreen from './NavigationScreen';
-import {Text, View, useWindowDimensions} from 'react-native';
+import {View, useWindowDimensions} from 'react-native';
+import {colors} from '../config/theme/app-theme';
 
 const Drawer = createDrawerNavigator();
 
@@ -22,16 +22,22 @@ const NavigationDrawer = () => {
         //drawerType:"slide",empuja la pantalla
         //drawerType: "permanent", siempre se muestra el menu
         drawerType: dimensions.width >= 758 ? 'permanent' : 'slide',
-        drawerActiveBackgroundColor: 'red',
+        drawerActiveBackgroundColor: colors.textSecondary,
         drawerActiveTintColor: 'white',
-        drawerInactiveTintColor: 'green',
+        drawerInactiveTintColor: colors.textSecondary,
+        drawerLabelStyle: {
+          fontSize: 21,
+          marginHorizontal: 'auto',
+        },
         drawerItemStyle: {
-          borderRadius: 100,
-          paddingHorizontal: 20,
+          borderRadius: 50,
+          paddingLeft: dimensions.width * 0.06,
+          marginHorizontal: 'auto',
+          width: dimensions.width * 0.5,
         },
       }}>
-      <Drawer.Screen name="Principal" component={NavigationScreen} />
-      <Drawer.Screen name="Setting" component={SettingScreen} />
+      <Drawer.Screen name="Horoscopos" component={NavigationScreen} />
+      <Drawer.Screen name="Config" component={SettingScreen} />
     </Drawer.Navigator>
   );
 };
@@ -40,16 +46,9 @@ export default NavigationDrawer;
 
 const CustomDrawerContent = (props: DrawerContentComponentProps) => {
   return (
-    <DrawerContentScrollView>
-      <View
-        style={{
-          height: 200,
-          margin: 30,
-          borderRadius: 50,
-        }}
-      />
+    <DrawerContentScrollView style={{backgroundColor: colors.primary}}>
+      <View style={{marginVertical: 50}} />
       <DrawerItemList {...props} />
-      <Text>Hola Mundo</Text>
     </DrawerContentScrollView>
   );
 };

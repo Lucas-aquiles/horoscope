@@ -1,23 +1,32 @@
 import React from 'react';
 import {
   View,
-  Text,
-  Button,
   SafeAreaView,
   Image,
   Dimensions,
   Pressable,
+  StatusBar,
 } from 'react-native';
+import {Text} from 'react-native-paper';
+import {Button} from 'react-native-paper';
+
 import {useNavigation} from '@react-navigation/native';
 import HamburguerMenu from '../components/HamburguerMenu';
+import {colors} from '../../config/theme/app-theme';
 
 const HomeScreen = () => {
-  const {width, height} = Dimensions.get('window'); // Obtener dimensiones de la pantalla
+  const {width, height} = Dimensions.get('window');
 
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={{
+        width: '100%',
+        height: height * 1,
+      }}>
+      <StatusBar barStyle={'dark-content'} backgroundColor={colors.primary} />
+
       <HamburguerMenu />
 
       <View style={{position: 'relative'}}>
@@ -25,21 +34,36 @@ const HomeScreen = () => {
           source={require('../../assets/image/planetas.webp')}
           style={{
             width: '100%',
-            height: '100%',
+            height: height * 1,
           }}
         />
       </View>
 
-      <Pressable
+      <Text
+        variant="displayMedium"
+        style={{
+          color: colors.textSecondary,
+          position: 'absolute',
+          bottom: height * 0.25,
+          fontWeight: '900',
+          textAlign: 'center',
+          alignSelf: 'center',
+          width: width * 0.8,
+        }}>
+        Horoscopo Semanal
+      </Text>
+
+      <Button
         style={{
           position: 'absolute',
-          backgroundColor: 'red',
-          right: '50%',
-          bottom: 100,
+          bottom: height * 0.1,
+          alignSelf: 'center',
         }}
+        labelStyle={{fontSize: 20}}
+        mode="contained"
         onPress={() => navigation.navigate('Select' as never)}>
-        <Text>ir a select</Text>
-      </Pressable>
+        Elige tu signo
+      </Button>
     </SafeAreaView>
   );
 };

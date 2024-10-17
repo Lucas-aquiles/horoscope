@@ -1,16 +1,16 @@
-import React, {useEffect} from 'react';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
-import {Pressable, Text, View} from 'react-native';
+import {Pressable, View} from 'react-native';
 import IonIcon from './IonIcon';
+import {colors} from '../../config/theme/app-theme';
 
 export const HamburguerMenu = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={{position: 'relative', backgroundColor: '#EBE0D7'}}>
+    <View style={{position: 'relative', backgroundColor: colors.primary}}>
       <Pressable
         onPress={() => navigation.dispatch(DrawerActions.toggleDrawer)}>
-        <IonIcon name={'menu-outline'} size={50} color={'red'} />
+        <IonIcon name={'menu-outline'} size={50} color={colors.textSecondary} />
       </Pressable>
     </View>
   );

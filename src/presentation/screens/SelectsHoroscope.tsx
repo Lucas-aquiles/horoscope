@@ -1,13 +1,14 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {Pressable, Text, View, FlatList, StyleSheet} from 'react-native';
-import Card from '../components/Card'; // Asegúrate de importar tu componente Card
+import {Text, View, FlatList, StyleSheet, Dimensions} from 'react-native';
+import Card from '../components/Card';
 import {colors} from '../../config/theme/app-theme';
+import {Button} from 'react-native-paper';
 
+const {width, height} = Dimensions.get('window');
 const SelectsHoroscope = () => {
   const navigation = useNavigation();
 
-  // Definimos el array de signos y sus imágenes
   const horoscopes = [
     {
       name: 'Aries',
@@ -54,30 +55,30 @@ const SelectsHoroscope = () => {
       image: require('../../assets/image/webp/11-Virgo.webp'),
     },
     {
-      name: 'Picis',
+      name: 'Piscis',
       image: require('../../assets/image/webp/12-Picis.webp'),
     },
   ];
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}>Select Horoscope</Text>
+      <Text style={styles.headerText}>Elige tu signo</Text>
 
       <FlatList
         data={horoscopes}
         keyExtractor={item => item.name}
-        renderItem={({item}) => (
-          <Card url={item.image} name={item.name} /> // Renderizamos el componente Card con la imagen correspondiente
-        )}
+        renderItem={({item}) => <Card url={item.image} name={item.name} />}
         contentContainerStyle={styles.list}
-        numColumns={2} // Mostramos dos columnas de cartas
+        numColumns={2}
       />
 
-      <Pressable
+      <Button
         style={styles.button}
+        labelStyle={{fontSize: 20}}
+        mode="contained"
         onPress={() => navigation.navigate('Home' as never)}>
-        <Text style={styles.buttonText}>Ir a home</Text>
-      </Pressable>
+        Regresar
+      </Button>
     </View>
   );
 };
@@ -91,20 +92,18 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 16,
+    marginBottom: 10,
     textAlign: 'center',
+    color: colors.textSecondary,
   },
   list: {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
+    paddingBottom: height * 0.05,
   },
   button: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: 'blue',
-    alignItems: 'center',
-    borderRadius: 5,
+    marginTop: 5,
   },
   buttonText: {
     color: '#fff',
