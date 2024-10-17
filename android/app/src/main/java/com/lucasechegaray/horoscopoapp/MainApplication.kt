@@ -1,4 +1,4 @@
-package com.horoscopo
+package com.lucasechegaray.horoscopoapp
 
 import android.app.Application
 import com.facebook.react.PackageList

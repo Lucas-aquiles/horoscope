@@ -83,9 +83,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.horoscopo"
+    namespace "com.lucasechegaray.horoscopoapp"
     defaultConfig {
-        applicationId "com.horoscopo"
+        applicationId "com.lucasechegaray.horoscopoapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -1,4 +1,4 @@
-package com.horoscopo
+package com.lucasechegaray.horoscopoapp
 import android.os.Bundle;
 
 import com.facebook.react.ReactActivity
