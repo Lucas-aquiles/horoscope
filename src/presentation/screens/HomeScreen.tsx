@@ -26,23 +26,28 @@ const HomeScreen = () => {
         backgroundColor: '#EBE0D7',
       }}>
       <StatusBar barStyle={'dark-content'} backgroundColor="#EBE0D7" />
-
-      <HamburguerMenu />
-
-      <View style={{position: 'relative'}}>
-        {/* Indicador de carga mientras se carga la imagen */}
-        {isLoading && (
+      {/* Indicador de carga mientras se carga la imagen */}
+      {isLoading && (
+        <View
+          style={{
+            position: 'absolute',
+            width: width,
+            height: height,
+            backgroundColor: colors.primary,
+          }}>
           <ActivityIndicator
             size="large"
             color={colors.textSecondary}
             style={{
-              position: 'absolute',
               top: height / 2 - 20, // Centrando el indicador
               left: width / 2 - 20,
             }}
           />
-        )}
+        </View>
+      )}
+      <HamburguerMenu />
 
+      <View style={{position: 'relative'}}>
         <Image
           source={require('../../assets/image/planetas.webp')}
           style={{
