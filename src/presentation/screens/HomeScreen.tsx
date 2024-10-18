@@ -26,28 +26,9 @@ const HomeScreen = () => {
         backgroundColor: '#EBE0D7',
       }}>
       <StatusBar barStyle={'dark-content'} backgroundColor="#EBE0D7" />
-      {/* Indicador de carga mientras se carga la imagen */}
-      {isLoading && (
-        <View
-          style={{
-            position: 'absolute',
-            width: width,
-            height: height,
-            backgroundColor: colors.primary,
-          }}>
-          <ActivityIndicator
-            size="large"
-            color={colors.textSecondary}
-            style={{
-              top: height / 2 - 20, // Centrando el indicador
-              left: width / 2 - 20,
-            }}
-          />
-        </View>
-      )}
-      <HamburguerMenu />
 
-      <View style={{position: 'relative'}}>
+      {/* Renderiza la imagen primero */}
+      <View style={{position: 'relative', paddingTop: height * 0.08}}>
         <Image
           source={require('../../assets/image/planetas.webp')}
           style={{
@@ -58,32 +39,53 @@ const HomeScreen = () => {
         />
       </View>
 
-      <Text
-        variant="displayMedium"
-        style={{
-          color: colors.textSecondary,
-          position: 'absolute',
-          bottom: height * 0.25,
-          fontWeight: '900',
-          textAlign: 'center',
-          alignSelf: 'center',
-          width: width * 0.8,
-        }}>
-        Horoscopo Semanal
-      </Text>
+      {/* Muestra el ActivityIndicator mientras isLoading sea true */}
+      {isLoading && (
+        <View
+          style={{
+            position: 'absolute',
+            width: width,
+            height: height,
+            backgroundColor: colors.primary,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <ActivityIndicator size="large" color={colors.textSecondary} />
+        </View>
+      )}
 
-      <Button
-        style={{
-          position: 'absolute',
-          bottom: height * 0.1,
-          alignSelf: 'center',
-          backgroundColor: colors.textSecondary,
-        }}
-        labelStyle={{fontSize: 20}}
-        mode="contained"
-        onPress={() => navigation.navigate('Select' as never)}>
-        Elige tu signo
-      </Button>
+      {!isLoading && (
+        <>
+          <HamburguerMenu />
+
+          <Text
+            variant="displayMedium"
+            style={{
+              color: colors.textSecondary,
+              position: 'absolute',
+              bottom: height * 0.25,
+              fontWeight: '900',
+              textAlign: 'center',
+              alignSelf: 'center',
+              width: width * 0.8,
+            }}>
+            Horóscopo Semanal
+          </Text>
+
+          <Button
+            style={{
+              position: 'absolute',
+              bottom: height * 0.1,
+              alignSelf: 'center',
+              backgroundColor: colors.textSecondary,
+            }}
+            labelStyle={{fontSize: 20}}
+            mode="contained"
+            onPress={() => navigation.navigate('Select' as never)}>
+            Elige tu signo
+          </Button>
+        </>
+      )}
     </SafeAreaView>
   );
 };
