@@ -7,7 +7,7 @@ export const HamburguerMenu = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={{position: 'relative', backgroundColor: colors.primary}}>
+    <View style={{position: 'absolute', backgroundColor: colors.primary}}>
       <Pressable
         onPress={() => navigation.dispatch(DrawerActions.toggleDrawer)}>
         <IonIcon name={'menu-outline'} size={50} color={colors.textSecondary} />
