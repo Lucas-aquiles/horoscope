@@ -79,7 +79,7 @@ const HomeScreen = () => {
               alignSelf: 'center',
               backgroundColor: colors.textSecondary,
             }}
-            labelStyle={{fontSize: 20}}
+            labelStyle={{fontSize: 20, color: colors.textPrimary}}
             mode="contained"
             onPress={() => navigation.navigate('Select' as never)}>
             Elige tu signo

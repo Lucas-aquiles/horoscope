@@ -74,7 +74,7 @@ const SelectsHoroscope = () => {
 
       <Button
         style={styles.button}
-        labelStyle={{fontSize: 20}}
+        labelStyle={{fontSize: 20, color: colors.textPrimary}}
         mode="contained"
         onPress={() => navigation.navigate('Home' as never)}>
         Regresar

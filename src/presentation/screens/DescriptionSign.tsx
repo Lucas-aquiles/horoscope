@@ -61,6 +61,7 @@ const DescriptionSign = () => {
           alignItems: 'center',
           textAlign: 'center',
           fontWeight: '600',
+          color: '#787878',
         }}>
         {horoscopeName.toLocaleUpperCase()}
       </Text>
@@ -71,6 +72,7 @@ const DescriptionSign = () => {
           fontWeight: '600',
           width: width * 0.9,
           marginHorizontal: 'auto',
+          color: '#787878',
         }}>
         {state && insertarSaltosDeLinea(state[0][horoscopeName])}
       </Text>
@@ -79,13 +81,13 @@ const DescriptionSign = () => {
           width: width * 0.5,
           marginHorizontal: 'auto',
           position: 'absolute',
-          bottom: height * 0.2,
-          alignItems: 'center',
+          bottom: height * 0.05,
           alignSelf: 'center',
         }}>
         <Button
           style={{backgroundColor: colors.textSecondary}}
           mode="contained"
+          labelStyle={{color: colors.textPrimary}}
           onPress={() => navigation.navigate('Home' as never)}>
           Regresar a Inicio
         </Button>
